@@ -1,0 +1,45 @@
+<div class="conatiner-fluid">
+    <div class="col-12 mx-auto my-4">
+      <table class="table">
+        <thead>
+          <tr class="bg">
+            <th scope="col">Selected<input disabled type="checkbox"><i class="fas fa-sort"></i></th>
+            
+            <th scope="col"></th>
+            <th scope="col">Asset &nbsp;&nbsp;&nbsp;<i class="fas fa-sort-alt"></i></th>
+            <th scope="col">Category&nbsp;&nbsp;&nbsp;<i class="fas fa-sort-alt"></i></th>
+            <th scope="col">Location&nbsp;&nbsp;&nbsp;<i class="fas fa-sort-alt"></i></th>
+            <th scope="col">Asset Health&nbsp;&nbsp;&nbsp;<i class="fas fa-sort-alt"></i></th>
+            <th scope="col">Open Cases&nbsp;&nbsp;&nbsp;<i class="fas fa-sort-alt"></i></th>
+            <th scope="col">Maintenance&nbsp;&nbsp;&nbsp;<i class="fas fa-sort-alt"></i></th>
+          </tr>
+        </thead>
+        <tbody>
+          
+          
+  
+          <tr *ngFor="let row of data">
+
+
+            
+            <td>
+              <input  class="form-check-input" type="checkbox" [(ngModel)]="row.selected">           
+              <a class="btn btn-secondary" [routerLink]="['/home',row.id]">View </a>
+          </td>
+  
+  
+            <td><img src={{row.image}} /></td>
+            
+            <td>{{row.asset}}</td>
+            <td>{{row.category}}</td>
+            <td><i class="fas fa-map-marker-alt"></i>{{row.location}}</td>
+            <td><i class="fas fa-check-circle"></i>{{row.assetHealth}}</td>
+            <td>{{row.opencase}}</td>
+            <td >{{row.maintenance}}<br/><i class="text-danger">{{row.days}}</i></td>
+            
+          </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  </div>
