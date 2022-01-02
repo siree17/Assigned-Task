@@ -1,5 +1,5 @@
 <div class="conatiner-fluid">
-    <div class="col-12 mx-auto my-4">
+    <div class="col-12 mx-6 my-6">
       <table class="table">
         <thead>
           <tr class="bg">
@@ -7,11 +7,11 @@
             
             <th scope="col"></th>
             <th scope="col">Asset &nbsp;&nbsp;&nbsp;<i class="fas fa-sort-alt"></i></th>
-            <th scope="col">Category&nbsp;&nbsp;&nbsp;<i class="fas fa-sort-alt"></i></th>
-            <th scope="col">Location&nbsp;&nbsp;&nbsp;<i class="fas fa-sort-alt"></i></th>
-            <th scope="col">Asset Health&nbsp;&nbsp;&nbsp;<i class="fas fa-sort-alt"></i></th>
-            <th scope="col">Open Cases&nbsp;&nbsp;&nbsp;<i class="fas fa-sort-alt"></i></th>
-            <th scope="col">Maintenance&nbsp;&nbsp;&nbsp;<i class="fas fa-sort-alt"></i></th>
+            <th scope="col">Category &nbsp;&nbsp;&nbsp;<i class="fas fa-sort-alt"></i></th>
+            <th scope="col">Location &nbsp;&nbsp;&nbsp;<i class="fas fa-sort-alt"></i></th>
+            <th scope="col">Asset Health &nbsp;&nbsp;&nbsp;<i class="fas fa-sort-alt"></i></th>
+            <th scope="col">Open Cases &nbsp;&nbsp;&nbsp;<i class="fas fa-sort-alt"></i></th>
+            <th scope="col">Maintenance &nbsp;&nbsp;&nbsp;<i class="fas fa-sort-alt"></i></th>
           </tr>
         </thead>
         <tbody>
@@ -33,11 +33,23 @@
             <td>{{row.asset}}</td>
             <td>{{row.category}}</td>
             <td><i class="fas fa-map-marker-alt"></i>{{row.location}}</td>
-            <td><i class="fas fa-check-circle"></i>{{row.assetHealth}}</td>
-            <td>{{row.opencase}}</td>
-            <td >{{row.maintenance}}<br/><i class="text-danger">{{row.days}}</i></td>
-            
-          </tr>
+
+             <td [ngSwitch]="row.assetHealth"> 
+                <div *ngSwitchCase="'Normal'"> <i class="fas fa-check-circle"></i> {{row.assetHealth}}</div>
+                <div *ngSwitchCase="'Warning'"><i class="fa fa-exclamation-circle" style="color:chocolate"></i>{{row.assetHealth}}</div>
+                <div *ngSwitchCase="'Critical'"><i class="fad fa-exclamation-triangle"></i>{{row.assetHealth}}</div>
+                </td>
+              
+           <td>{{row.opencase}}</td>
+            <td>
+              {{row.maintenance}}<br/> 
+              <!-- <div *ngIf="row.days =='4 days'"> -->
+              <i class="text-primary">{{row.days}}</i>
+              <!-- <div *ngSwitchCase="'4 days'"> <i class="text-danger">{{row.days}}</i> </div> -->
+          
+          
+            </td>
+            </tr>
           
         </tbody>
       </table>

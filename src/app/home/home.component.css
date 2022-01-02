@@ -16,3 +16,14 @@ a{
     background-color:rgb(151, 204, 248)
 }
 
+.fa-map-marker-alt{
+    color:blue;
+  }
+  .fa-check-circle
+  {
+      color: green;
+  }
+  .fa-exclamation-triangle
+  {
+      color: red;
+  }
